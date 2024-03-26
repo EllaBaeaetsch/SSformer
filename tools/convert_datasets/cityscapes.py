@@ -3,6 +3,7 @@ import argparse
 import os.path as osp
 
 import mmcv
+import mmcv.utils
 from cityscapesscripts.preparation.json2labelImg import json2labelImg
 
 
@@ -27,7 +28,7 @@ def main():
     args = parse_args()
     cityscapes_path = args.cityscapes_path
     out_dir = args.out_dir if args.out_dir else cityscapes_path
-    mmcv.mkdir_or_exist(out_dir)
+    mmcv.utils.mkdir_or_exist(out_dir)
 
     gt_dir = osp.join(cityscapes_path, args.gt_dir)
 
